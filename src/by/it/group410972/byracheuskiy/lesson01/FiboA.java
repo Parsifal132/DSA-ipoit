@@ -16,7 +16,6 @@ public class FiboA {
         int n = 33;
         System.out.printf("calc(%d)=%d \n\t time=%d \n\n", n, fibo.calc(n), fibo.time());
 
-        //вычисление чисел фибоначчи медленным методом (рекурсией)
         fibo = new FiboA();
         n = 34;
         System.out.printf("slowA(%d)=%d \n\t time=%d \n\n", n, fibo.slowA(n), fibo.time());
@@ -29,24 +28,18 @@ public class FiboA {
     }
 
     private int calc(int n) {
-        if (n <= 0) {
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        } else {
-            return calc(n - 1)+ calc(n - 2) ;
+        if(n <= 1){
+            return n;
         }
+        return calc(n - 1) + calc(n - 2);
     }
 
 
     BigInteger slowA(Integer n) {
-        if (n <= 0) {
-            return BigInteger.ZERO;
-        } else if (n == 1) {
-            return BigInteger.ONE;
-        } else {
-            return slowA(n - 1).add(slowA(n - 2)) ;
+        if(n <= 1){
+            return BigInteger.valueOf(n);
         }
+        return slowA(n - 1).add(slowA(n - 2));
     }
 
 
